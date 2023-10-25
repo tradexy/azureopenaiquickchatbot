@@ -69,9 +69,9 @@ async function askQuestion() {
             {
                 type: 'AzureCognitiveSearch',
                 parameters: {
-                    endpoint: 'https://searchser231025uks.search.windows.net',
-                    key: 'sBV5aaYjHGwdxo3ZHZpTdPsqdI4FFaNFRDPAIV1DemAzSeDql1Eo',
-                    indexName: 'index432231025uks'
+                    endpoint: 'https://searchser231025uks.search.windows.net',  // Keep this as is or move to an environment variable if needed
+                    key: azureSearchKey,  // Here we replace the hardcoded key with the variable
+                    indexName: 'index432231025uks'  // Keep this as is or move to an environment variable if needed
                 }
             }
         ],
@@ -79,8 +79,8 @@ async function askQuestion() {
     };
 
     try {
-        const apiUrl = 'https://uksouth.api.cognitive.microsoft.com/openai/deployments/t4deploy231025uks/extensions/chat/completions?api-version=2023-10-01-preview';
-        const apiKey = '7f0065f45a2e471c93adb3fd19c3e83e';
+        const apiUrl = 'https://uksouth.api.cognitive.microsoft.com/openai/deployments/t4deploy231025uks/extensions/chat/completions?api-version=2023-10-01-preview';  // Keep this as is or move to an environment variable if needed
+        const apiKey = azureOpenAIKey;  // Here we replace the hardcoded key with the variable
 
         const response = await fetch(apiUrl, {
             method: 'POST',

@@ -1,0 +1,31 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # Adjust with your branch name if it's not main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm install  # Or use yarn install if you're using Yarn
+
+      - name: Build
+        run: npm run build  # Adjust if you have a different build command
+
+      - name: Deploy
+        env:
+          AZURE_SEARCH_KEY: ${{ secrets.AZURE_SEARCH_KEY }}
+          AZURE_OPENAI_KEY: ${{ secrets.AZURE_OPENAI_KEY }}
+        run: npm run deploy  # Adjust if you have a different deploy command
