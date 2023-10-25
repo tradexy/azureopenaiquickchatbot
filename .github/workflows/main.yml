@@ -21,8 +21,9 @@ jobs:
       - name: Install dependencies
         run: npm install  # Or use yarn install if you're using Yarn
 
-      - name: Build
-        run: npm run build  # Adjust if you have a different build command
+      # Remove the Build step as it's not needed for your project
+      #- name: Build
+      #  run: npm run build  # Adjust if you have a different build command
 
       - name: Deploy
         env:
